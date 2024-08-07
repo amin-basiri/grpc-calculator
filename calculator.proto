@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+
+enum Operation {
+  ADD = 0;
+  MINUS = 1;
+  MULTIPLY = 2;
+  DIVISION = 3;
+}
+
+
+message CalculationRequest {
+  float num1 = 1;
+  float num2 = 2;
+  Operation op = 3;
+}
+
+
+message CalculationResponse {
+  float result = 1;
+}
+
+
+service Calculator {
+  rpc calculate (CalculationRequest) returns (CalculationResponse);
+}
